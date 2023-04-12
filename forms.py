@@ -10,7 +10,7 @@ class PetForm(FlaskForm):
     name = StringField("Pet Name", validators=[
                        InputRequired()])
     species = SelectField("Species", choices=[
-                          (p, p) for p in pet_choices], default='Dog')
+        (p, p) for p in pet_choices], default='Dog')
     photo_url = StringField("Photo URL")
     age = FloatField("Age", validators=[NumberRange(
         min=0, max=30, message="Age Range: 0 - 30 years")])
