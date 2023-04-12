@@ -21,3 +21,17 @@
   </div>
 </div>
 {% endblock %}
+
+<!-- ANOTHER WAY TO ADD INPUTS TO TEMPLATE WITH MORE CONTROL OVER INDIVIDUAL INPUT STYLE'S CLASSES ETC. -->
+
+<!-- {{form.name.label(class_="text-danger")}}
+{{form.name(class_="form-control form-control-lg")}} 
+
+{{form.species.label(class_="text-primary")}} 
+{{form.species(class_="form-control form-control-lg")}}
+
+{{form.age.label(class_="text-success")}} 
+{{form.age(class_="form-control form-control-lg")}} -->
+
+<!-- Can render them out this way, one at a time rather than looping through all and applying the same styling to all
+REPLACES LINE 8 - 15 aka filling the form one input at a time rather than looping through all-->
