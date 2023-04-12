@@ -1,0 +1,14 @@
+body {
+    background-color: #CCDBEE;
+}
+
+img {
+    border: 3px solid black;
+    border-radius: 12px;
+    width: 200px;
+
+}
+
+a.pet_link {
+    text-decoration: none;
+}
