@@ -2,6 +2,7 @@ from flask import Flask, render_template,  redirect, flash
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Pet
 from forms import PetForm
+from secret import SECRET_KEY
 
 
 app = Flask(__name__)
@@ -9,7 +10,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///pet_shop_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
-app.config['SECRET_KEY'] = "chickenzarecool21837"
+app.config['SECRET_KEY'] = SECRET_KEY
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 debug = DebugToolbarExtension(app)
 
@@ -69,10 +70,10 @@ def add_pet():
 @app.route('/pets/<int:pet_id>/edit', methods=["GET", "POST"])
 def edit_pet(pet_id):
     """Show edit form and handle edit of single pet instance"""
-    # *find matching pet based on pet.id => pet_id
+    # *query and find matching pet based on pet.id => pet_id
     pet = Pet.query.get_or_404(pet_id)
 
-    # *create form instance using WTForm
+    # *create form instance using WTForm pass in the found pet object to prefill form's values
     form = PetForm(obj=pet)
 
     # * validate form on submit
