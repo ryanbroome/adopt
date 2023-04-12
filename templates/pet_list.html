@@ -10,8 +10,8 @@
   </head>
   <body>
     {% block content %}
-    <h1>Adopt Today!</h1>
-    <p>These pets all want a loving home</p>
+    <h1 class="display-1 text-center">Adopt Today!</h1>
+    <p class="text-center">These pets all want a loving home</p>
     <a href="/add" class="btn btn-success">Add a Pet</a>
     <hr />
     {% for msg in get_flashed_messages( ) %}
@@ -21,7 +21,7 @@
     <div class="contianer text-center">
       <div class="row">
         {% for pet in pets %}
-        <div class="col">
+        <div class="col-md-4">
           <a href="/{{pet.id}}"><img src="{{pet.photo_url}}" alt="pet image" class=".img-thumbnail" /></a>
           <br />
           <a href="/{{pet.id}}" class="pet_link">{{pet.name}}</a>
